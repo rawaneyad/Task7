@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Flex, Spacer, Stack, VStack } from "@chakra-ui/react";
-import { HeadingItem, CartBox, EmptyCart } from "../components";
+import { HeadingItem, CartBox, EmptyCart, CartLoading } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { getShoppingCart } from "../features";
 
@@ -20,6 +20,7 @@ const ShoppingCart = () => {
       </Flex>
       {shoppingCart.shoppingCart.length ? (
         <VStack spacing={4} align="stretch">
+          {shoppingCart.loading && <CartLoading />}
           {shoppingCart.shoppingCart.map((product) => (
             <CartBox key={product.id} product={product} />
           ))}

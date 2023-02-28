@@ -11,6 +11,13 @@ export const addToCart = createAsyncThunk(
       JSON?.parse(localStorage?.getItem("ShoppingCart")) || [];
     shoppingCart.push(product);
     localStorage.setItem("ShoppingCart", JSON.stringify(shoppingCart));
+    localStorage.setItem(
+      "addProductToCart",
+      JSON.stringify({
+        title: "Success",
+        description: "The product add to cart successfully.",
+      })
+    );
     return shoppingCart;
   }
 );
