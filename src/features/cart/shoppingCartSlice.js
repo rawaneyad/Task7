@@ -36,6 +36,13 @@ export const removeFromCart = createAsyncThunk(
       JSON?.parse(localStorage?.getItem("ShoppingCart")) || [];
     const filterShoppingCart = shoppingCart.filter((item) => item.id !== id);
     localStorage.setItem("ShoppingCart", JSON.stringify(filterShoppingCart));
+    localStorage.setItem(
+      "removeProductFromCart",
+      JSON.stringify({
+        title: "Success",
+        description: "The product remove from cart successfully.",
+      })
+    );
     return filterShoppingCart;
   }
 );
