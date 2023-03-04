@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Modal,
   ModalOverlay,
@@ -13,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { ButtonItem, InputItem, TextareaItem } from "../components";
 import { useFormik } from "formik";
-import { addNewProduct } from "../features";
+import { addNewProduct, fetchProducts } from "../features";
 import { useDispatch, useSelector } from "react-redux";
 
 const AddProduct = () => {
@@ -35,17 +34,19 @@ const AddProduct = () => {
           toast({
             position: "top",
             title:
-              JSON?.parse(localStorage?.getItem("addProduct")).title || "Error",
+              JSON?.parse(localStorage?.getItem("addProductToAPI")).title ||
+              "Error",
             description:
-              JSON?.parse(localStorage?.getItem("addProduct")).description ||
-              "The product added failed",
-            status: JSON?.parse(localStorage?.getItem("addProduct"))
+              JSON?.parse(localStorage?.getItem("addProductToAPI"))
+                .description || "The product added failed",
+            status: JSON?.parse(localStorage?.getItem("addProductToAPI"))
               ? "success"
               : "error",
             duration: 9000,
             isClosable: true,
           })
-        );
+        )
+        .then(() => dispatch(fetchProducts()));
     },
   });
   return (

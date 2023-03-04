@@ -6,8 +6,11 @@ import { ButtonItem, HeadingItem, ImageItem, TextItem } from "../items";
 
 const ProductsBox = ({ product }) => {
   const toast = useToast();
-
+  const isItemAddedToCart = JSON?.parse(
+    localStorage?.getItem("ShoppingCart")
+  ).find((item) => item.id === product.id);
   const onClickAddToCart = () => {
+    // e.preventDefault();
     dispatch(addToCart(product)).then(() =>
       toast({
         position: "top",
@@ -55,9 +58,7 @@ const ProductsBox = ({ product }) => {
         </Stack>
       </CardBody>
       <CardFooter>
-        {JSON?.parse(localStorage?.getItem("ShoppingCart")).find(
-          (item) => item.id === product.id
-        ) ? (
+        {isItemAddedToCart ? (
           <ButtonItem
             name="Remove From Cart"
             onClick={() => onClickRemoveFromCart()}

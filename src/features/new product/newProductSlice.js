@@ -12,7 +12,7 @@ export const addNewProduct = createAsyncThunk(
       .post("https://62d6874451e6e8f06f0c0fb0.mockapi.io/products", values)
       .then((res) => {
         localStorage.setItem(
-          "addProduct",
+          "addProductToAPI",
           JSON.stringify({
             title: "Success",
             description: "The product added successfully.",
