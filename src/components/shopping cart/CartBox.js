@@ -20,7 +20,11 @@ const CartBox = ({ product }) => {
         </CardBody>
       </Stack>
       <Spacer />
-      <CloseButton size="lg" color="brand.900" onClick={()=>dispatch(removeFromCart(product.id))} />
+      <CloseButton
+        size="lg"
+        color="brand.900"
+        onClick={() => dispatch(removeFromCart(product.id))}
+      />
     </Card>
   );
 };

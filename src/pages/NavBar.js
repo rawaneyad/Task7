@@ -10,6 +10,7 @@ import {
 import logo from "../Image/logo.png";
 import Products from "./Products";
 import ShoppingCart from "./ShoppingCart";
+
 const NavBar = () => {
   return (
     <Tabs defaultIndex={1}>

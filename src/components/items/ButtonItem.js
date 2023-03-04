@@ -6,7 +6,7 @@ const ButtonItem = ({ name, onClick, type, isLoading }) => {
     <Button
       isLoading={isLoading}
       colorScheme="brand"
-      variant='brandPrimary'
+      variant="brandPrimary"
       size="sm"
       type={type}
       onClick={onClick}

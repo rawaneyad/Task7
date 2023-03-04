@@ -1,15 +1,18 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
 const initialState = {
   loading: false,
   products: [],
   error: "",
 };
+
 export const fetchProducts = createAsyncThunk("products/fetchProducts", () => {
   return axios
     .get("https://62d6874451e6e8f06f0c0fb0.mockapi.io/products")
     .then((res) => res.data.reverse());
 });
+
 const productsSlice = createSlice({
   name: "products",
   initialState,

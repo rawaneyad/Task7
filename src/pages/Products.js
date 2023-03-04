@@ -16,6 +16,7 @@ const Products = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
+  
   return (
     <Stack className="main">
       <Flex>

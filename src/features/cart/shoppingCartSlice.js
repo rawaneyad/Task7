@@ -4,6 +4,7 @@ const initialState = {
   shoppingCart: [],
   error: "",
 };
+
 export const addToCart = createAsyncThunk(
   "shoppingCart/addToCart",
   (product) => {
@@ -21,6 +22,7 @@ export const addToCart = createAsyncThunk(
     return shoppingCart;
   }
 );
+
 export const getShoppingCart = createAsyncThunk(
   "shoppingCart/getShoppingCart",
   () => {
@@ -29,6 +31,7 @@ export const getShoppingCart = createAsyncThunk(
     return shoppingCart;
   }
 );
+
 export const removeFromCart = createAsyncThunk(
   "shoppingCart/removeFromCart",
   (id) => {
@@ -46,6 +49,7 @@ export const removeFromCart = createAsyncThunk(
     return filterShoppingCart;
   }
 );
+
 const shoppingCartSlice = createSlice({
   name: "shoppingCart",
   initialState,

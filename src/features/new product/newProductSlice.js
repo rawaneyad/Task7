@@ -5,6 +5,7 @@ const initialState = {
   newProduct: {},
   error: "",
 };
+
 export const addNewProduct = createAsyncThunk(
   "newProduct/addNewProduct",
   (values) => {

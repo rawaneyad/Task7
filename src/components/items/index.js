@@ -5,4 +5,11 @@ import InputItem from "./InputItem";
 import TextareaItem from "./TextareaItem";
 import TextItem from "./TextItem";
 
-export { ButtonItem, HeadingItem, ImageItem, InputItem, TextareaItem, TextItem };
+export {
+  ButtonItem,
+  HeadingItem,
+  ImageItem,
+  InputItem,
+  TextareaItem,
+  TextItem,
+};
