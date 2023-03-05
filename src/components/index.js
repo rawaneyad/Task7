@@ -5,6 +5,7 @@ import {
   InputItem,
   TextareaItem,
   TextItem,
+  Pagination
 } from "./items";
 import { ProductsBox, ProductsError, ProductsLoading } from "./products";
 import { CartBox, CartLoading, EmptyCart } from "./shopping cart";
@@ -20,6 +21,7 @@ export {
   ProductsBox,
   ProductsError,
   ProductsLoading,
+  Pagination,
   TextareaItem,
   TextItem,
 };

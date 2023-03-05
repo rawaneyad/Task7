@@ -18,6 +18,13 @@ const colors = {
 const brandPrimary = defineStyle({
   background: "brand.900",
   color: "white",
+  _hover: {
+    transform: "scale(1.05, 1.05)",
+    bg: `brand.800`,
+  },
+  _active: {
+    bg: `brand.600`,
+  },
 });
 const buttonTheme = defineStyleConfig({
   variants: { brandPrimary },

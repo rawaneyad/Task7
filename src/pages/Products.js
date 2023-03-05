@@ -2,21 +2,29 @@ import { fetchProducts } from "../features";
 import { Flex, SimpleGrid, Spacer, Stack } from "@chakra-ui/react";
 import {
   HeadingItem,
+  Pagination,
   ProductsBox,
   ProductsError,
   ProductsLoading,
 } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import AddProduct from "./AddProduct";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Products = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(12);
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
-  
+  const lastProductIndex = currentPage * productsPerPage;
+  const firstProductIndex = lastProductIndex - productsPerPage;
+  const currentProducts = products.products.slice(
+    firstProductIndex,
+    lastProductIndex
+  );
   return (
     <Stack className="main">
       <Flex>
@@ -28,11 +36,17 @@ const Products = () => {
         {products.loading && <ProductsLoading />}
         {!products.loading && products.error ? <ProductsError /> : null}
         {!products.loading && products.products.length
-          ? products.products.map((product) => (
+          ? currentProducts.map((product) => (
               <ProductsBox key={product.id} product={product} />
             ))
           : null}
       </SimpleGrid>
+      <Pagination
+        totalProducts={products.products.length}
+        productsPerPage={productsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </Stack>
   );
 };

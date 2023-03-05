@@ -23,3 +23,7 @@
 .EmptyImage {
   align-self: center;
 }
+
+button.active {
+  background-color: #55433c;
+}
