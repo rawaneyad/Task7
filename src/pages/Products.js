@@ -13,12 +13,12 @@ import React, { useEffect, useState } from "react";
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(12);
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
+  const productsPerPage=12;
   const lastProductIndex = currentPage * productsPerPage;
   const firstProductIndex = lastProductIndex - productsPerPage;
   const currentProducts = products.products.slice(
