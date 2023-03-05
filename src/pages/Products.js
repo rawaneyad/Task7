@@ -32,7 +32,7 @@ const Products = () => {
         <Spacer />
         <AddProduct />
       </Flex>
-      <SimpleGrid minChildWidth="300px" spacing="20px">
+      <SimpleGrid minChildWidth="250px" spacing="20px">
         {products.loading && <ProductsLoading />}
         {!products.loading && products.error ? <ProductsError /> : null}
         {!products.loading && products.products.length

@@ -1,16 +1,14 @@
 import { Card, CardBody, CardFooter, Stack, useToast } from "@chakra-ui/react";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../../features";
 import { ButtonItem, HeadingItem, ImageItem, TextItem } from "../items";
 
 const ProductsBox = ({ product }) => {
+  const shoppingCart = useSelector((state) => state.shoppingCart);
   const toast = useToast();
-  const isItemAddedToCart = JSON?.parse(
-    localStorage?.getItem("ShoppingCart")
-  ).find((item) => item.id === product.id);
+  const isItemAddedToCart = shoppingCart.shoppingCart.find((item) => item.id === product.id);
   const onClickAddToCart = () => {
-    // e.preventDefault();
     dispatch(addToCart(product)).then(() =>
       toast({
         position: "top",
@@ -25,7 +23,7 @@ const ProductsBox = ({ product }) => {
           : "error",
         duration: 9000,
         isClosable: true,
-      })
+      })  
     );
   };
   const onClickRemoveFromCart = () => {
